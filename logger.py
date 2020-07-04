@@ -38,7 +38,6 @@ def getAllSiteUrls(start_url, link_class, flag):
 
 
 if __name__ == "__main__":
-	start_url = "https://schönegge.de/index.php/wir-bieten/rezepte/114-ufo-kuerbis-gefuellt"
-	link_class = "mod-articles-category-title"
-	update_links_flag = False
-	linkDICT = getAllSiteUrls(start_url, link_class, update_links_flag)
+	with open("config.json") as config_file:
+		CONFIG = json.load(config_file)
+	linkDICT = getAllSiteUrls(CONFIG["start_url"], CONFIG["link_class"], CONFIG["update_links_flag"])
